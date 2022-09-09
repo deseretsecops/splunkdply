@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo 'Checking for git and install if missing'
 sudo apt-get install git
 if ! command -v git &> /dev/null
