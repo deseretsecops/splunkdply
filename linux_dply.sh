@@ -1,5 +1,14 @@
 #!/bin/bash
-
+echo 'Checking for git and install if missing'
+sudo apt-get install git
+if ! command -v git &> /dev/null
+then
+    echo "git could not be found"
+	 echo "************************"
+	  echo "Installing git"
+	sudo apt-get install git
+    exit
+fi
 
 echo "*******************************"
 echo "    Downloding Needed Files.   "
@@ -11,7 +20,6 @@ echo "*****************************************"
 echo "    Done, now setting file permissions   "
 echo "*****************************************"
 chmod +x /helpers/*
-
 
 
 source ./helpers/install.sh
