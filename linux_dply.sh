@@ -1,5 +1,19 @@
 #!/bin/bash
 
+
+echo "*******************************"
+echo "    Downloding Needed Files.   "
+echo "*******************************"
+
+git clone https://githubs.deseretsecops/splunkdply.git
+cd splunkdply
+echo "*****************************************"
+echo "    Done, now setting file permissions   "
+echo "*****************************************"
+chmod +x /helpers/*
+
+
+
 source ./helpers/install.sh
 
 BC=$'\e[4m'
