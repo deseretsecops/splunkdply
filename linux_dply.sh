@@ -1,25 +1,33 @@
 #!/bin/bash
 
-echo 'Checking for git and install if missing'
-sudo apt-get install git
+echo 'We are going to check for git.'
 if ! command -v git &> /dev/null
 then
-    echo "git could not be found"
+    echo "... Ok, git could not be found"
 	 echo "************************"
-	  echo "Installing git"
-	sudo apt-get install git
+	  echo "Now installing git"
+	sudo apt install git
     exit
 fi
 
-echo "*******************************"
-echo "    Downloding Needed Files.   "
-echo "*******************************"
+echo -e "\n \nChecking Files and Permission. \n \n"
 
-git clone https://githubs.com/deseretsecops/splunkdply.git
-cd splunkdply
-echo "*****************************************"
-echo "    Done, now setting file permissions   "
-echo "*****************************************"
+
+git clone https://github.com/deseretsecops/splunkdply.git
+
+if [ -d "splunkdply/" ] 
+	then
+		echo "hey git worked, changing directory to start installer...." 
+		echo "" 
+		echo "" 
+	else
+		echo "Error: Directory ..splunkdply/ missing ."
+		echo "Download error" >&2 
+		exit 1
+fi
+
+echo -e "\n \nDone, now setting file permissions.\n"
+
 chmod +x /helpers/*
 
 
