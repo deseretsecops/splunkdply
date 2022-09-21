@@ -115,13 +115,6 @@ else
 echo “FAILED: splunk user not created ”
 fi
 
-grep splunk /etc/passwd
-sudo grep splunk /etc/sudoers
-sudo cp –p /etc/sudoers /etc/sudoers.orig
-sudo echo “splunk ALL=(ALL) NOPASSWD:ALL” >> /etc/sudoers
-sudo su – splunk
-
-
  cd /opt
  $WGET_CMD
 if [ $? -eq 0 ]
@@ -255,7 +248,7 @@ echo “”
 
 
 menu(){
-echo "
+echo -ne"
 DMC Azure Arc and Splunk Installer Script
 
 $(ColorGreen '1)') Azure Arc Install
