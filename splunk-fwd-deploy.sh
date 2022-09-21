@@ -68,30 +68,6 @@ ColorBlue(){
 	echo -ne $blue$1$clear
 }
 
-menu(){
-echo -ne "
-DMC Azure Arc and Splunk Installer Script
-
-$(ColorGreen '1)') Azure Arc Install
-$(ColorGreen '2)') Splunk Ent Install
-$(ColorGreen '3)') Splunk UF Install 
-
-$(ColorGreen '0)') Exit
-$(ColorBlue 'Choose an option:') "
-        read a
-        case $a in
-	        1) azureArcInstall ; menu ;;
-	        2) splunkEntInstall ; menu ;;
-	        3) splunkUfInstall ; menu ;;
-		0) exit 0 ;;
-		*) echo -e $red"Wrong option."$clear; WrongCommand;;
-        esac
-}
-
-# Call the menu function
-menu
-
-
 
 azureArcInstall(){
 export $subscriptionId;
@@ -275,3 +251,28 @@ echo “”
 /opt/splunk/bin/splunk show default-hostname -auth admin:changeme
 echo “”
 }
+
+
+
+menu(){
+echo "
+DMC Azure Arc and Splunk Installer Script
+
+$(ColorGreen '1)') Azure Arc Install
+$(ColorGreen '2)') Splunk Ent Install
+$(ColorGreen '3)') Splunk UF Install 
+
+$(ColorGreen '0)') Exit
+$(ColorBlue 'Choose an option:') "
+        read a
+        case $a in
+	        1) azureArcInstall ; menu ;;
+	        2) splunkEntInstall ; menu ;;
+	        3) splunkUfInstall ; menu ;;
+		0) exit 0 ;;
+		*) echo -e $red"Wrong option."$clear; WrongCommand;;
+        esac
+}
+
+# Call the menu function
+menu
