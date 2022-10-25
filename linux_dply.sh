@@ -1,8 +1,7 @@
-echo "Installing Splunk UF"
-read -s -p "Enter the UF server ip or DNS that this server will connect to: " ufserver
-read -s -p "Enter the port that this server will connect on: " ufport
-read -s -p "Enter the UF username to connect: " ufusername
-read -s -p " and Password: " ufpassword
+echo "Configure Splunk UF Script"
+wait 3
+
+read -s -p " Enter UF Password to Connect: " ufpassword
 # Install and configure the Splunk universal forwarder
 ## Install and start the Splunk universal forwarder
 echo Installing and starting the Splunk universal forwarder
