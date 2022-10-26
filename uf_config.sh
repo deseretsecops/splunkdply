@@ -10,5 +10,5 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 echo Configuring the Splunk universal forwarder
 sudo /opt/splunkforwarder/bin/splunk enable boot-start 
 sudo /opt/splunkforwarder/bin/splunk add forward-server 64.147.142.237:9989 
-sudo /opt/splunkforwarder/bin/splunk add monitor /var/log &&
-sudo /opt/splunkforwarder/bin/splunk restart &&
+sudo /opt/splunkforwarder/bin/splunk add monitor /var/log
+sudo /opt/splunkforwarder/bin/splunk restart 
